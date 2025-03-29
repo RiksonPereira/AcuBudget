@@ -70,7 +70,7 @@ public class ExpenseServiceImpl implements ExpenseService {
                 .orElseThrow(() -> new ExpenseNotFoundException("Expense not found"));
         expense.setExpenseDate(expenseDto.expenseDate());
         expense.setAmount(expenseDto.amount());
-        expense.setDescription(expenseDto.discription());
+        expense.setDescription(expenseDto.description());
         if(expenseDto.categoryDto() != null) {
             Category category = categoryRepository.findById(expenseDto.categoryDto().id()).orElseThrow(()-> new RuntimeException("Category not found"));
             expense.setCategory(category);

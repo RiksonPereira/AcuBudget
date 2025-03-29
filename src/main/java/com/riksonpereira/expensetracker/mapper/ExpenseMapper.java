@@ -28,7 +28,7 @@ public class ExpenseMapper {
                 expenseDto.expenseDate(),
                 category,
                 expenseDto.amount(),
-                expenseDto.discription()
+                expenseDto.description()
 
         );
     }
