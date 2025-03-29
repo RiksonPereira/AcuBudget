@@ -4,7 +4,6 @@ import com.riksonpereira.expensetracker.dto.CategoryDto;
 import com.riksonpereira.expensetracker.dto.ExpenseDto;
 import com.riksonpereira.expensetracker.entity.Category;
 import com.riksonpereira.expensetracker.entity.Expense;
-import com.riksonpereira.expensetracker.service.CategoryService;
 
 public class ExpenseMapper {
     public static ExpenseDto mapToExpenseDto(Expense expense) {

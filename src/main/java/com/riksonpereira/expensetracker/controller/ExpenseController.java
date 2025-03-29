@@ -1,7 +1,6 @@
 package com.riksonpereira.expensetracker.controller;
 
 import com.riksonpereira.expensetracker.dto.ExpenseDto;
-import com.riksonpereira.expensetracker.entity.Expense;
 import com.riksonpereira.expensetracker.service.ExpenseService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

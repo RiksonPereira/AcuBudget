@@ -1,7 +1,6 @@
 package com.riksonpereira.expensetracker.controller;
 
 import com.riksonpereira.expensetracker.dto.CategoryDto;
-import com.riksonpereira.expensetracker.entity.Category;
 import com.riksonpereira.expensetracker.service.CategoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -9,7 +8,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

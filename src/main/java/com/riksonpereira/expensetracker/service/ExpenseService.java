@@ -1,7 +1,6 @@
 package com.riksonpereira.expensetracker.service;
 
 import com.riksonpereira.expensetracker.dto.ExpenseDto;
-import com.riksonpereira.expensetracker.entity.Expense;
 
 import java.util.List;
 
