@@ -2,6 +2,7 @@ package com.riksonpereira.expensetracker.service.impl;
 
 import com.riksonpereira.expensetracker.dto.CategoryDto;
 import com.riksonpereira.expensetracker.entity.Category;
+import com.riksonpereira.expensetracker.exceptions.CategoryNotFoundException;
 import com.riksonpereira.expensetracker.mapper.CategoryMapper;
 import com.riksonpereira.expensetracker.repository.CategoryRepository;
 import com.riksonpereira.expensetracker.service.CategoryService;
@@ -27,7 +28,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDto getCategoryById(Long id) {
         Category category = categoryRepository.findById(id)
-                .orElseThrow(()-> new RuntimeException("Category not found"));
+                .orElseThrow(()-> new CategoryNotFoundException("Category not found"));
         return CategoryMapper.mapToCategoryDto(category);
     }
 
@@ -39,7 +40,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDto updateCategory(Long id, CategoryDto categoryDto) {
-        Category category = categoryRepository.findById(id).orElseThrow(()-> new RuntimeException("Category not found"));
+        Category category = categoryRepository.findById(id).orElseThrow(()-> new CategoryNotFoundException("Category not found"));
         category.setName(categoryDto.name());
         Category updatedCategory = categoryRepository.save(category);
         return CategoryMapper.mapToCategoryDto(updatedCategory);
