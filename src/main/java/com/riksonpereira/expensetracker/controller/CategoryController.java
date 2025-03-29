@@ -19,26 +19,26 @@ public class CategoryController {
     CategoryService categoryService;
 
     @PostMapping("/createCategory")
-    public ResponseEntity<Category> createCategory(@RequestBody CategoryDto categoryDto) {
-        Category category = categoryService.createCategory(categoryDto);
+    public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto) {
+        CategoryDto category = categoryService.createCategory(categoryDto);
         return new ResponseEntity<>(category, HttpStatus.CREATED);
     }
 
     @GetMapping("/getCategory/{id}")
-    public ResponseEntity<Category> getCategoryById(@PathVariable("id") Long id) {
-        Category category = categoryService.getCategoryById(id);
+    public ResponseEntity<CategoryDto> getCategoryById(@PathVariable("id") Long id) {
+        CategoryDto category = categoryService.getCategoryById(id);
         return new ResponseEntity<>(category, HttpStatus.OK);
     }
 
     @GetMapping("/getCategory")
-    public ResponseEntity<List<Category>> getAllCategories() {
-        List<Category> categories = categoryService.getAllCategories();
+    public ResponseEntity<List<CategoryDto>> getAllCategories() {
+        List<CategoryDto> categories = categoryService.getAllCategories();
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
-    @GetMapping("updateCategory/{id}")
-    public ResponseEntity<Category> updateCategory(@PathVariable("id") Long id, @RequestBody CategoryDto categoryDto) {
-        Category category = categoryService.updateCategory(id, categoryDto);
+    @PutMapping("updateCategory/{id}")
+    public ResponseEntity<CategoryDto> updateCategory(@PathVariable("id") Long id, @RequestBody CategoryDto categoryDto) {
+        CategoryDto category = categoryService.updateCategory(id, categoryDto);
         return new ResponseEntity<>(category, HttpStatus.OK);
     }
 

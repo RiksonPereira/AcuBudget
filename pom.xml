@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.riksonpereira</groupId>
-    <artifactId>expense-tracker</artifactId>
+    <artifactId>AcuBudget</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>expense-tracker</name>
+    <name>AcuBudget</name>
     <description>expense-tracker</description>
     <url/>
     <licenses>

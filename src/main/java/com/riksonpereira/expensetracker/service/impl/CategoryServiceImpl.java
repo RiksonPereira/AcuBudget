@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
@@ -17,28 +18,31 @@ public class CategoryServiceImpl implements CategoryService {
     CategoryRepository categoryRepository;
 
     @Override
-    public Category createCategory(CategoryDto categoryDto) {
+    public CategoryDto createCategory(CategoryDto categoryDto) {
         Category category = CategoryMapper.mapToCategory(categoryDto);
-        return categoryRepository.save(category);
+        Category savedCategory = categoryRepository.save(category);
+        return CategoryMapper.mapToCategoryDto(savedCategory);
     }
 
     @Override
-    public Category getCategoryById(Long id) {
-        return  categoryRepository.findById(id)
+    public CategoryDto getCategoryById(Long id) {
+        Category category = categoryRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Category not found"));
-
+        return CategoryMapper.mapToCategoryDto(category);
     }
 
     @Override
-    public List<Category> getAllCategories() {
-        return categoryRepository.findAll();
+    public List<CategoryDto> getAllCategories() {
+        List<Category> category = categoryRepository.findAll();
+        return category.stream().map(CategoryMapper::mapToCategoryDto).collect(Collectors.toList());
     }
 
     @Override
-    public Category updateCategory(Long id, CategoryDto categoryDto) {
-        Category category = getCategoryById(id);
+    public CategoryDto updateCategory(Long id, CategoryDto categoryDto) {
+        Category category = categoryRepository.findById(id).orElseThrow(()-> new RuntimeException("Category not found"));
         category.setName(categoryDto.name());
-        return categoryRepository.save(category);
+        Category updatedCategory = categoryRepository.save(category);
+        return CategoryMapper.mapToCategoryDto(updatedCategory);
     }
 
     @Override
